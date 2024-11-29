@@ -10,4 +10,9 @@ public class LibraryApiApplication {
         SpringApplication.run(LibraryApiApplication.class, args);
     }
 
+
+    public void teste(){
+
+    }
+
 }
