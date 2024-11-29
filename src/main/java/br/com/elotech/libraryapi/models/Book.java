@@ -17,7 +17,7 @@ public class Book extends BaseEntity{
     private String title;
     private String isbn;
     private String author;
-    private LocalDate publicationDate;
+    private LocalDate publishedDate;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
