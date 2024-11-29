@@ -14,13 +14,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book extends BaseEntity{
+
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
     private String isbn;
+
+    @Column(nullable = false)
     private String author;
+
+    @Column(nullable = false)
     private LocalDate publishedDate;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false, referencedColumnName = "id")
     private Category category;
 
     @OneToMany(mappedBy = "book")

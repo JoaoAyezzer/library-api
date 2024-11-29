@@ -1,5 +1,6 @@
 package br.com.elotech.libraryapi.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -15,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class Category extends BaseEntity{
+
+    @Column(nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "category")

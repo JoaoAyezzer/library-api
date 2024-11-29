@@ -1,10 +1,7 @@
 package br.com.elotech.libraryapi.models;
 
 import br.com.elotech.libraryapi.enums.StatusLoan;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -19,11 +16,15 @@ import java.time.LocalDate;
 public class BookLoan extends BaseEntity{
 
     @ManyToOne
-    @JoinColumn(name = "book_id")
+    @JoinColumn(name = "book_id", nullable = false)
     private Book book;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    private StatusLoan statusLoan;
+
+    @Column(nullable = false)
+    private StatusLoan status;
+
+    @Column(nullable = false)
     private LocalDate returnDate;
 }
