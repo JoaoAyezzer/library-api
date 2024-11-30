@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -18,11 +19,13 @@ public class Book extends BaseEntity{
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
-    private String isbn;
+    @ElementCollection
+    @CollectionTable(name = "isbns")
+    private Set<String> isbn;
 
-    @Column(nullable = false)
-    private String author;
+    @ElementCollection
+    @CollectionTable(name = "authors")
+    private Set<String> author;
 
     @Column(nullable = false)
     private LocalDate publishedDate;
