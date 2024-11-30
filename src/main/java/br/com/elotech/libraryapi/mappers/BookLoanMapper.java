@@ -30,7 +30,7 @@ public class BookLoanMapper {
                 bookLoan.getCreatedAt(),
                 bookLoan.getReturnDate(),
                 bookLoan.getUpdatedAt(),
-                bookLoan.getStatus().name()
+                bookLoan.getStatus().getDescription()
         );
     }
 }

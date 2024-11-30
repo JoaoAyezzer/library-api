@@ -7,8 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum StatusLoan {
 
-    LOANED(0, "LOANED"),
-    RETURNED(1, "RETURNED");
+    LOANED(0, "Emprestado"),
+    RETURNED(1, "Entregue");
 
 
     private final int code;
