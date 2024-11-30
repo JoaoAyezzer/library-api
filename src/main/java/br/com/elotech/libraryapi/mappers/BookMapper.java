@@ -9,7 +9,9 @@ import org.springframework.beans.BeanUtils;
 import java.util.Objects;
 
 public class BookMapper {
-
+    private BookMapper() {
+        throw new IllegalStateException("Utility class");
+    }
     public static Book toEntity(BookRequest request, Category category){
         var book = new Book();
         BeanUtils.copyProperties(request, book);
@@ -18,7 +20,7 @@ public class BookMapper {
     }
 
     public static BookResponse toResponse(Book book){
-        var response = new BookResponse(
+        return new BookResponse(
                 book.getId(),
                 book.getTitle(),
                 book.getIsbn(),
@@ -29,6 +31,5 @@ public class BookMapper {
                 book.getCreatedAt(),
                 book.getUpdatedAt()
         );
-        return response;
     }
 }

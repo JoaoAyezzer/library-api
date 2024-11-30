@@ -10,6 +10,9 @@ import br.com.elotech.libraryapi.models.User;
 import java.util.Objects;
 
 public class BookLoanMapper {
+    private BookLoanMapper() {
+        throw new IllegalStateException("Utility class");
+    }
     public static BookLoan toEntity(BookLoanRequest request, Book book, User user) {
         return BookLoan
                 .builder()

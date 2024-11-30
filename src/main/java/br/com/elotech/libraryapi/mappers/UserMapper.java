@@ -6,7 +6,9 @@ import br.com.elotech.libraryapi.models.User;
 import org.springframework.beans.BeanUtils;
 
 public class UserMapper {
-
+    private UserMapper() {
+        throw new IllegalStateException("Utility class");
+    }
     public static User toEntity(UserRequest request){
         var user = new User();
         BeanUtils.copyProperties(request, user);
@@ -14,7 +16,7 @@ public class UserMapper {
     }
 
     public static UserResponse toResponse(User user){
-        var response = new UserResponse(
+        return new UserResponse(
                 user.getId(),
                 user.getName(),
                 user.getEmail(),
@@ -22,6 +24,5 @@ public class UserMapper {
                 user.getCreatedAt(),
                 user.getUpdatedAt()
         );
-        return response;
     }
 }

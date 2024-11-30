@@ -6,7 +6,9 @@ import br.com.elotech.libraryapi.models.Category;
 import org.springframework.beans.BeanUtils;
 
 public class CategoryMapper {
-
+    private CategoryMapper() {
+        throw new IllegalStateException("Utility class");
+    }
     public static Category toEntity(CategoryRequest request){
         var category = new Category();
         BeanUtils.copyProperties(request, category);
@@ -14,12 +16,11 @@ public class CategoryMapper {
     }
 
     public static CategoryResponse toResponse(Category category){
-        var response = new CategoryResponse(
+        return new CategoryResponse(
                 category.getId(),
                 category.getName(),
                 category.getCreatedAt(),
                 category.getUpdatedAt()
         );
-        return response;
     }
 }
