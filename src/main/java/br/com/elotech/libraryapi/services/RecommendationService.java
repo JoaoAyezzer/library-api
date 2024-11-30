@@ -9,7 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -23,16 +25,16 @@ public class RecommendationService {
         List<BookLoan> bookLoans = bookLoanRepository.findAllByUserId(id);
 
         //Filtra todos os ids dos livros que o usuário já pegou emprestado
-        List<UUID> bookIds = bookLoans
+        Set<UUID> bookIds = bookLoans
                 .stream()
                 .map(loan -> loan.getBook().getId())
-                .toList();
+                .collect(Collectors.toSet());
 
         //Filtra todos os ids das categorias dos livros que o usuário já pegou emprestado
-        List<UUID> borrowedCategoryIds = bookLoans
+        Set<UUID> borrowedCategoryIds = bookLoans
                 .stream()
                 .map(loan -> loan.getBook().getCategory().getId())
-                .toList();
+                .collect(Collectors.toSet());
 
         return bookRepository.findByCategoryIdInAndIdNotIn(borrowedCategoryIds, bookIds).stream().map(BookMapper::toResponse).toList();
     }
