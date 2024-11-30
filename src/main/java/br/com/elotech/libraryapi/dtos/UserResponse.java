@@ -1,5 +1,6 @@
 package br.com.elotech.libraryapi.dtos;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public record UserResponse(
@@ -7,7 +8,7 @@ public record UserResponse(
         String name,
         String email,
         String phone,
-        String createdAt,
-        String updatedAt
+        LocalDateTime createdAt,
+        LocalDateTime updatedAt
 ) {
 }
