@@ -23,8 +23,8 @@ public class BookMapper {
         return new BookResponse(
                 book.getId(),
                 book.getTitle(),
-                book.getIsbn(),
-                book.getAuthor(),
+                book.getIsbns(),
+                book.getAuthors(),
                 book.getPublishedDate(),
                 Objects.nonNull(book.getCategory()) ? book.getCategory().getId() : null,
                 Objects.nonNull(book.getCategory()) ? book.getCategory().getName() : null,

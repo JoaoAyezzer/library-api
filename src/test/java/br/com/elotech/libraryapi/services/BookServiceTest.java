@@ -54,8 +54,8 @@ class BookServiceTest {
 
         book = Book.builder()
                 .title("Harry Potter e a Criança Amaldiçoada - Partes Um e Dois")
-                .isbn(Set.of("9781781105337", "1781105332"))
-                .author(Set.of("J.K. Rowling", "John Tiffany", "Jack Thorne"))
+                .isbns(Set.of("9781781105337", "1781105332"))
+                .authors(Set.of("J.K. Rowling", "John Tiffany", "Jack Thorne"))
                 .publishedDate(LocalDate.now())
                 .category(category)
                 .build();

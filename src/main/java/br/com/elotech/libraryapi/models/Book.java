@@ -21,11 +21,11 @@ public class Book extends BaseEntity{
 
     @ElementCollection
     @CollectionTable(name = "isbns")
-    private Set<String> isbn;
+    private Set<String> isbns;
 
     @ElementCollection
     @CollectionTable(name = "authors")
-    private Set<String> author;
+    private Set<String> authors;
 
     @Column(nullable = false)
     private LocalDate publishedDate;
