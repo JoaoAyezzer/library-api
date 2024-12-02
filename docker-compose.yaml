@@ -1,0 +1,13 @@
+services:
+  labrary-api:
+    image: ayezzer/library-api:1.0.0
+    container_name: labrary-api
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=
+      - DB_PORT=
+      - DB_NAME=
+      - DB_USERNAME=
+      - DB_PASSWORD=
